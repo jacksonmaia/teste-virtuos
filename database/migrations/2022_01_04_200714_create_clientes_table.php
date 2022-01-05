@@ -17,14 +17,14 @@ class CreateClientesTable extends Migration
             $table->id();
             $table->string('razao_social');
             $table->string('nome');
-            $table->string('tipo');//O que colocar
+            $table->enum('tipo', ['1', '2']);
             $table->string('documento');
             $table->string('estado');
             $table->string('cidade');
             $table->string('email');
             $table->string('telefone');
             $table->string('endereco');
-            $table->string('status');
+            $table->enum('status', ['1', '2', '3']);
             $table->timestamps();
         });
     }

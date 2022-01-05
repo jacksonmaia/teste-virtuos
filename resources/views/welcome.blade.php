@@ -12,6 +12,7 @@
             <th scope="col">Documento</th>
             <th scope="col">Telefone</th>
             <th scope="col">Status</th>
+            <th scope="col">Ver</th>
           </tr>
         </thead>
             <tbody>
@@ -23,6 +24,7 @@
                     <td>{{ $cliente->documento }}</td>
                     <td>{{ $cliente->telefone }}</td>
                     <td>{{ $cliente->status }}</td>
+                    <td><a href="{{ url('/cliente', $cliente->id) }}">Ver</a></td>
                 </tr>
             @endforeach
             </tbody>
