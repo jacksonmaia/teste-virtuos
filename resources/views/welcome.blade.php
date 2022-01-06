@@ -8,7 +8,7 @@
         <h4>LISTA DE CONTATOS DO CLIENTE:</h4>
         <thead>
           <tr>
-            <th scope="col">#</th>
+            <th scope="col">Razão social</th>
             <th scope="col">Nome</th>
             <th scope="col">Tipo de pessoa</th>
             <th scope="col">Documento</th>
@@ -20,7 +20,7 @@
             <tbody>
             @foreach ($clientes as $cliente)
                 <tr>
-                    <th scope="row">{{ $cliente->id }}</th>
+                    <td>{{ $cliente->razao_social }}</td>
                     <td>{{ $cliente->nome }}</td>
                     @if ($cliente->tipo == 1)
                         <td>Pessoa fisica</td>
