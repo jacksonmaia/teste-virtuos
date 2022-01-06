@@ -28,14 +28,18 @@ class ClienteController extends Controller
 
     public function store(Request $request)
     {
-        $clienteData = $request->all();
-        $documento = $clienteData['documento'];
-        if(Cliente::where('documento', $documento)->count() < 1){
-            Cliente::create( $request->all() );
-            return redirect()->route('cliente');
-        }
-        return redirect('cliente/new')->with('alert', 'Cliente já cadastrado!');
-
+        $request->validate([
+            'nome' => 'required|max:255',
+            'tipo' => 'required|max:255',
+            'documento' => 'required|unique:clientes|max:255',
+            'email' => 'required|max:255',
+            'telefone' => 'required|max:255',
+            'endereco' => 'required',
+            'estado' => 'required|max:255',
+            'cidade' => 'required|max:255',
+        ]);
+        Cliente::create( $request->all() );
+        return redirect()->route('cliente');
     }
 
     public function edit($id)
@@ -56,6 +60,8 @@ class ClienteController extends Controller
     {
         $cliente = Cliente::find($id);
         $cliente->delete();
-        return redirect()->route('home');
+        $contato = Contato::where('cliente_id', $id);
+        $contato->delete();
+        return redirect()->route('welcome');
     }
 }

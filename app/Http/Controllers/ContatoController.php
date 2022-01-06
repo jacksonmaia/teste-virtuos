@@ -20,6 +20,13 @@ class ContatoController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'nome' => 'required|max:255',
+            'email' => 'required|max:255',
+            'telefone' => 'required|max:255',
+            'funcao' => 'required|max:255',
+            'cliente_id' => 'required',
+        ]);
         Contato::create( $request->all() );
         return redirect()->route('contato.list');
     }

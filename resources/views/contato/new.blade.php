@@ -7,19 +7,31 @@
 
         <div class="col-6">
             <label for="inputAddress" class="form-label">Nome</label>
-            <input required name="nome" type="text" class="form-control" id="inputAddress" placeholder="Qual o nome do contato?">
+            <input name="nome" type="text" class="form-control" id="inputAddress" placeholder="Qual o nome do contato?">
+            @error('nome')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="col-md-6">
-          <label for="inputEmail4" class="form-label">Email</label>
-          <input required name="email" type="email" class="form-control" placeholder="Coloque o email">
+            <label for="inputEmail4" class="form-label">Email</label>
+            <input name="email" type="email" class="form-control" placeholder="Coloque o email">
+            @error('email')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Telefone</label>
-            <input required name="telefone" type="number" class="form-control" placeholder="Qual o seu Telefone? Apenas números" >
+            <input name="telefone" type="number" class="form-control" placeholder="Qual o seu Telefone? Apenas números" >
+            @error('telefone')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
           </div>
         <div class="col-6">
-          <label for="inputAddress2" class="form-label">Função</label>
-          <input required name="funcao" type="text" class="form-control" placeholder="Qual a função na empresa" >
+            <label for="inputAddress2" class="form-label">Função</label>
+            <input name="funcao" type="text" class="form-control" placeholder="Qual a função na empresa" >
+            @error('funcao')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="col-md-6">
             <label for="inputZip" class="form-label">Alocar no cliente:</label>

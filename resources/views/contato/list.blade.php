@@ -7,7 +7,6 @@
         <a class="contato" href="{{ url('contato/new') }}">Novo contato</a>
         <thead>
           <tr>
-            <th scope="col">#</th>
             <th scope="col">Nome</th>
             <th scope="col">Email</th>
             <th scope="col">Telefone</th>
@@ -18,7 +17,6 @@
             <tbody>
             @foreach ($contatos as $contato)
                 <tr>
-                    <th scope="row">{{ $contato->id }}</th>
                     <td>{{ $contato->nome }}</td>
                     <td>{{ $contato->email }}</td>
                     <td>{{ $contato->telefone }}</td>

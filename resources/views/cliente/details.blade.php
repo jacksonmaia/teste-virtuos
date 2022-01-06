@@ -5,7 +5,6 @@
     <table class="table">
         <thead>
           <tr>
-            <th scope="col">#</th>
             <th scope="col">Nome</th>
             <th scope="col">Razão social</th>
             <th scope="col">Tipo</th>
@@ -17,7 +16,6 @@
         </thead>
         <tbody>
         <tr>
-            <th scope="row">{{ $cliente->id }}</th>
             <td>{{ $cliente->nome }}</td>
             <td>{{ $cliente->razao_social }}</td>
             @if ($cliente->tipo == 1)
@@ -49,7 +47,6 @@
         <h4>LISTA DE CONTATOS DO CLIENTE:</h4>
         <thead>
           <tr>
-            <th scope="col">#</th>
             <th scope="col">Nome</th>
             <th scope="col">Email</th>
             <th scope="col">Telefone</th>
@@ -60,7 +57,6 @@
             @foreach ($contatos as $contato)
                 @if($contato->cliente_id == $cliente->id)
                     <tr>
-                        <th scope="row">{{ $contato->id }}</th>
                         <td>{{ $contato->nome }}</td>
                         <td>{{ $contato->email }}</td>
                         <td>{{ $contato->telefone }}</td>
