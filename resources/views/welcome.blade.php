@@ -4,6 +4,8 @@
 <div class="container">
     <table class="table">
         <a href="{{ url('cliente/new') }}">Novo cliente</a>
+        <a class="contato" href="{{ url('contato/list') }}">Contatos</a>
+        <h4>LISTA DE CONTATOS DO CLIENTE:</h4>
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -20,14 +22,29 @@
                 <tr>
                     <th scope="row">{{ $cliente->id }}</th>
                     <td>{{ $cliente->nome }}</td>
-                    <td>{{ $cliente->tipo }}</td>
+                    @if ($cliente->tipo == 1)
+                        <td>Pessoa fisica</td>
+                    @else
+                        <td>Pessoa juridica</td>
+                    @endif
                     <td>{{ $cliente->documento }}</td>
                     <td>{{ $cliente->telefone }}</td>
-                    <td>{{ $cliente->status }}</td>
+                    @if ($cliente->status == 1)
+                        <td>Ativo</td>
+                    @elseif ($cliente->status == 2)
+                        <td>Inativo</td>
+                    @else
+                        <td>Prospecto</td>
+                    @endif
                     <td><a href="{{ url('/cliente', $cliente->id) }}">Ver</a></td>
                 </tr>
             @endforeach
             </tbody>
       </table>
 </div>
+<style>
+    .contato{
+        float: right;
+    }
+</style>
 @endsection

@@ -15,18 +15,13 @@ Route::prefix('cliente')->group(function(){
     Route::get('/edit/{id}', 'ClienteController@edit')->where('id', '[0-9]+');
     Route::post('/update/{id}', 'ClienteController@update')->where('id', '[0-9]+');
 
-    Route::delete('/{id}', 'ClienteController@delete')->where('id', '[0-9]+');
+    Route::delete('/delete/{id}', 'ClienteController@delete')->where('id', '[0-9]+');
 });
 
 Route::prefix('contato')->group(function(){
-    Route::get('/', 'ContatoController@index');
-    Route::get('/{id}', 'ContatoController@show')->where('id', '[0-9]+');
+    Route::get('/list', 'ContatoController@index')->name('contato.list');
     Route::get('/new', 'ContatoController@create');
 
     Route::post('/save', 'ContatoController@store');
-
-    Route::get('/edit/{id}', 'ContatoController@edit')->where('id', '[0-9]+');
-    Route::post('/update/{id}', 'ContatoController@update')->where('id', '[0-9]+');
-
-    Route::delete('/{id}', 'ContatoController@delete')->where('id', '[0-9]+');
+    Route::delete('/delete/{id}', 'ContatoController@delete')->where('id', '[0-9]+');
 });

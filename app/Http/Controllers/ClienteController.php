@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cliente;
+use App\Contato;
 use Illuminate\Http\Request;
 
 class ClienteController extends Controller
@@ -16,7 +17,8 @@ class ClienteController extends Controller
     public function show($id)
     {
         $cliente = Cliente::find($id);
-        return view('cliente.details', ['cliente'=>$cliente]);
+        $contatos = Contato::all();
+        return view('cliente.details', ['cliente'=>$cliente, 'contatos'=>$contatos]);
     }
 
     public function create()
@@ -32,6 +34,8 @@ class ClienteController extends Controller
             Cliente::create( $request->all() );
             return redirect()->route('cliente');
         }
+        return redirect('cliente/new')->with('alert', 'Cliente já cadastrado!');
+
     }
 
     public function edit($id)
@@ -52,6 +56,6 @@ class ClienteController extends Controller
     {
         $cliente = Cliente::find($id);
         $cliente->delete();
-        return redirect()->route('welcome');
+        return redirect()->route('home');
     }
 }

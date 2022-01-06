@@ -68,10 +68,15 @@
               </select>
         </div>
 
-        <div class="col-12" style="margin-top: 2em;">
+        <div class="col-12 bot-cadastrar">
           <button type="submit" class="btn btn-primary">Atualizar</button>
         </div>
       </form>
-      
+
 </div>
+<style>
+    .bot-cadastrar{
+        margin-top: 2em;
+    }
+</style>
 @endsection
