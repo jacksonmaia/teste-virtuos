@@ -6,9 +6,6 @@
         <div class="col-6">
             <label for="inputAddress" class="form-label">Razão Social</label>
             <input name="razao_social" type="text" class="form-control" id="inputAddress"  placeholder="Razão social">
-            @error('razao_social')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
         </div>
         <div class="col-6">
             <label for="inputAddress" class="form-label">Nome</label>

@@ -50,6 +50,16 @@ class ClienteController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'nome' => 'required|max:255',
+            'tipo' => 'required|max:255',
+            'documento' => 'required|max:255',
+            'email' => 'required|max:255',
+            'telefone' => 'required|max:255',
+            'endereco' => 'required',
+            'estado' => 'required|max:255',
+            'cidade' => 'required|max:255',
+        ]);
         $clienteData = $request->all();
         $cliente = Cliente::find($id);
         $cliente->update($clienteData);

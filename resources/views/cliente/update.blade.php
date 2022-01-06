@@ -11,6 +11,9 @@
         <div class="col-6">
             <label for="inputAddress" class="form-label">Nome</label>
             <input type="text" name="nome" class="form-control" id="inputAddress" value="{{ $cliente->nome }}">
+            @error('nome')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="col-md-6">
             <label for="inputPassword4" class="form-label">Tipo</label>
@@ -27,26 +30,44 @@
         <div class="col-md-6">
             <label for="inputPassword4" class="form-label">Documento</label>
             <input type="number" name="documento" class="form-control" value="{{ $cliente->documento }}">
+            @error('documento')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="col-md-6">
           <label for="inputEmail4" class="form-label">Email</label>
           <input type="email" name="email" class="form-control" value="{{ $cliente->email }}">
+            @error('email')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="col-md-6">
             <label for="inputEmail4" class="form-label">Telefone</label>
             <input type="number" name="telefone" class="form-control" value="{{ $cliente->telefone }}" >
-          </div>
+            @error('telefone')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
         <div class="col-12">
           <label for="inputAddress2" class="form-label">Endereço</label>
           <input type="text" name="endereco" class="form-control" id="inputAddress2" value="{{ $cliente->endereco }}" >
+            @error('endereco')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="col-md-6">
           <label for="inputCity" class="form-label">Estado</label>
           <input type="text" name="estado" class="form-control" value="{{ $cliente->estado }}">
+            @error('estado')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="col-md-6">
             <label for="inputZip" class="form-label">Cidade</label>
             <input type="text" name="cidade" class="form-control" value="{{ $cliente->cidade }}">
+            @error('cidade')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="col-md-2">
           <label for="inputZip" class="form-label">Status</label>
